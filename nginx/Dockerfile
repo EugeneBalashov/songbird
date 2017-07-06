@@ -13,6 +13,11 @@ RUN echo "upstream php-upstream { server php:9000; }" > /etc/nginx/conf.d/upstre
 
 RUN usermod -u 1000 www-data
 
+# my
+#RUN chown -R www-data:www-data /var/www/symfony/var/cache
+#RUN chown -R www-data:www-data /var/www/symfony/var/logs
+# /my
+
 CMD ["nginx"]
 
 EXPOSE 80
