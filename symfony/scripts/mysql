@@ -3,4 +3,4 @@
 MYSQL_DATABASE=`grep MYSQL_DATABASE .env | cut -d= -f 2`
 MYSQL_ROOT_PASSWORD=`grep MYSQL_ROOT_PASSWORD .env | cut -d= -f 2`
 
-docker-compose exec db mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE -e "$\@"
+docker-compose exec db mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE -e "$@"

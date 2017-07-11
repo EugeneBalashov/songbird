@@ -10,6 +10,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User extends BaseUser
 {
@@ -36,6 +37,35 @@ class User extends BaseUser
      */
     private $lastname;
 
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+    private $modified;
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+    private $created;
+
+
+	/**
+	 * @ORM\PrePersist
+	 */
+    public function prePersist()
+    {
+    	$this->setModified(new \DateTime());
+    	if ($this->getCreated() == null) {
+    		$this->setCreated(new \DateTime('now'));
+	    }
+    }
+
+	/**
+	 * @ORM\PreUpdate
+	 */
+    public function preUpdate()
+    {
+		$this->setModified(new \DateTime());
+    }
 
     /**
      * Get id
@@ -94,5 +124,60 @@ class User extends BaseUser
     {
         return $this->lastname;
     }
-}
 
+    public function setPassword($password)
+    {
+		if ($password) {
+			$this->password = $password;
+		}
+		return $this;
+    }
+
+    /**
+     * Set modified
+     *
+     * @param \DateTime $modified
+     *
+     * @return User
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get modified
+     *
+     * @return \DateTime
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return User
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+}
