@@ -4,6 +4,10 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip
 
+#my
+RUN apt-get install -y \
+	libzip-dev nano
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer --version
@@ -15,6 +19,9 @@ RUN "date"
 
 # Type docker-php-ext-install to see available extensions
 RUN docker-php-ext-install pdo pdo_mysql
+
+#my
+RUN docker-php-ext-install zip
 
 # Install opcache
 RUN docker-php-ext-install opcache
@@ -28,6 +35,9 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && tar zxpf /tmp/blackfire-probe.tar.gz -C /tmp \
     && mv /tmp/blackfire-*.so $(php -r "echo ini_get('extension_dir');")/blackfire.so \
     && printf "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707\n" > $PHP_INI_DIR/conf.d/blackfire.ini
+
+#my
+# extension=zip.so\n
     
 # install xdebug
 # RUN pecl install xdebug
