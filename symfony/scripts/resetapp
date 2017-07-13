@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rm -rf var/cache/*
+sudo rm -rf var/cache/*
 # scripts/console cache:clear --no-warmup
 scripts/console doctrine:database:drop --force
 scripts/console doctrine:database:create
@@ -8,4 +8,4 @@ scripts/console doctrine:schema:create
 scripts/console doctrine:fixtures:load -n
 
 #my
-chmod 777 -R var/cache
+sudo chmod 777 -R var/cache
