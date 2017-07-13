@@ -1,9 +1,7 @@
 services:
-#    app.example:
-#        class:     AppBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
-#        calls:
-#            - [setService, ["@service_id"]]
-#        tags:
-#            - { name: twig.extension }
-#            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+  app.subscriber:
+    class: AppBundle\EventListener\AppSubscriber
+    arguments:
+      - "@service_container"
+    tags:
+      - { name: kernel.event_subscriber }
