@@ -17,7 +17,11 @@ fos_user_resetting:
 #    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
 #    prefix: /profile
 
-easy_admin_bundle:
-  resource: "@AppBundle/Controller/AdminController.php"
-  type: annotation
+#easy_admin_bundle:
+#  resource: "@AppBundle/Controller/AdminController.php"
+#  type: annotation
+#  prefix: /admin
+
+sonata_admin_bundle:
+  resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
   prefix: /admin
