@@ -64,6 +64,7 @@ class AdminController extends BaseAdminBundle
 			}
 //			$this->updateEntityProperty($entity, $property, $newValue);
 			//my
+			// @todo Test
 			$entity->{$property} = $newValue;
 			$this->preUpdateEntity($entity);
 
