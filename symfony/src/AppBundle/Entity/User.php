@@ -3,7 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+//use FOS\UserBundle\Model\User as BaseUser;
+use Sonata\UserBundle\Entity\BaseUser;
 
 /**
  * User
@@ -12,7 +13,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class User extends BaseUser
+class _User extends BaseUser
 {
     /**
      * @var int
@@ -28,14 +29,14 @@ class User extends BaseUser
      *
      * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
-    private $firstname;
+//    protected $firstname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
-    private $lastname;
+//    protected $lastname;
 
 	/**
 	 * @ORM\Column(type="datetime", nullable=true)

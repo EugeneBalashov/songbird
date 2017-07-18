@@ -3,7 +3,7 @@
 namespace AppBundle\EventListener;
 
 
-use JavierEguiluz\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
+//use JavierEguiluz\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
@@ -25,11 +25,11 @@ class AppSubscriber implements EventSubscriberInterface
 	public static function getSubscribedEvents()
 	{
 		return [
-			EasyAdminEvents::PRE_LIST   => 'checkUserRights',
-			EasyAdminEvents::PRE_EDIT   => 'checkUserRights',
-			EasyAdminEvents::PRE_SHOW   => 'checkUserRights',
-			EasyAdminEvents::PRE_NEW    => 'checkUserRights',
-			EasyAdminEvents::PRE_DELETE => 'checkUserRights',
+//			EasyAdminEvents::PRE_LIST   => 'checkUserRights',
+//			EasyAdminEvents::PRE_EDIT   => 'checkUserRights',
+//			EasyAdminEvents::PRE_SHOW   => 'checkUserRights',
+//			EasyAdminEvents::PRE_NEW    => 'checkUserRights',
+//			EasyAdminEvents::PRE_DELETE => 'checkUserRights',
 		];
 	}
 
