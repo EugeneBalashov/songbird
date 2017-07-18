@@ -3,3 +3,13 @@ sonata_block:
   blocks:
     sonata.admin.block.admin_list:
       context: [admin]
+
+parameters:
+    locale: en
+    sonata.user.admin.user.class: AppBundle\Admin\UserAdmin
+    sonata.user.admin.user.entity: AppBundle\Entity\User
+
+services:
+    sonata.user.admin.group:
+        abstract: true
+        public: false
